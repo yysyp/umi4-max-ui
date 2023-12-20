@@ -1,0 +1,66 @@
+# Follow umi guide: https://umijs.org/docs/guides/getting-started
+# This umi 4 with max (antd pro application)
+
+# Preconditions:
+	* node 14+ installed, You can use nvm/nvm-windows to manage node version.
+		node default pacakge manage tool is npm, you can use: pnpm or Yarn
+		(optional) lets install pnpm by: npm install -g pnpm
+		(optional) #Reference:
+				1. npx 是 npm 的一个命令，可以在不全局安装的情况下执行 
+				2. npm 包npm 是 Node.js 官方的包管理工具，可用于安装、卸载、管理 Node.js 包。
+				3. cnpm 是淘宝团队开发的 npm中国镜像，可以加快 npm 包下载和安装速度。
+				4. pnpm是一个更快的npm包管理器，它使用了一种称为“硬链接”的方式来存储依赖关系，从而减少了磁盘空间和安装时间。
+		
+	* config npm source repositories.
+		Check current repo: npm config get registry
+		Set repository: npm config set registry https://registry.npmjs.org/ or npm config set registry https://registry.npm.taobao.org
+		install cnpm and set taobao repositories: npm install -g cnpm --registry=https://registry.npmmirror.com
+		Proxy settings:
+			//Check proxy
+			npm config get proxy
+			npm config get https-proxy
+			//Set proxy
+			npm config set proxy http://127.0.0.1:8080
+			npm config set https-proxy http://127.0.0.1:8080
+			//Delete proxy
+			npm config delete proxy
+			npm config delete https-proxy
+			
+	(optional) create .npmrc at your home folder, and config: 
+		registry=xxx		
+		cafile=xxx.pem
+		always_auth=true
+		_auth="xxx"
+		
+
+# Commands:
+	mkdir myapp && cd myapp
+	npx create-umi@latest
+		1.Simple App 你可以理解为纯净版的Umi，包含umi4文档上关于Guides下的所有功能，但是不包括Umi Max。
+		2.Ant Design Pro 包含Umi Max的完整功能，均可通过在.umirc.ts 或 config/config.ts中插拔式配置。 个人建议选择这个模版。
+		3.Vue Simple App 如果你的项目框架是vue则使用该模版。
+	npm install
+	npm run setup
+	npm run start
+	visit the http://localhost:8000/
+	If everything looks good, then:
+		1. You can run "npm run build" or "umi build" to build the source code. 
+		2. And you can deploy ./dist folder to web server.
+	
+
+
+# Optional:
+	1. enable code Prettier by run "umi g" and choose "Enable Prettier".
+	2. enable Dva plugin:
+		a. npm install --save-dev @umijs/plugins
+		b. in ".umirc.ts" or "config.ts" file add: 
+			export default {
+				...
+				plugins: ['@umijs/plugins/dist/dva'],
+				dva:{}
+			}
+		c. use command "umi plugin list" to check whether plugin enabled.	
+	3. use umi generator to generate page, i.e. 
+		a. umi g page foo	
+		b. add "route" config to "routes" in ".umirc.ts": { path: "/foo", component: "foo" }
+		
