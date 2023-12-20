@@ -55,3 +55,18 @@ function Welcome(props) {
 - 输出日志（logging）
 
 ### 副效应是随着组件加载而发生的，那么组件卸载时，可能需要清理这些副效应。useEffect()允许返回一个函数，在组件卸载时，执行该函数，清理副效应。如果不需要清理副效应，useEffect()就不用返回任何值。
+
+### 默认情况下，自定义组件不会暴露它们内部 DOM 节点的 ref。所以需要用 React.forwardRef()包装一下：
+
+```javascript
+import { forwardRef } from 'react';
+const MyInput = forwardRef(({ value, onChange }, ref) => {
+return (
+<input
+value={value}
+onChange={onChange}
+ref={ref}
+/>
+export default MyInput;
+
+```
