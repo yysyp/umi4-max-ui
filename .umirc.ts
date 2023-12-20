@@ -1,11 +1,18 @@
 import { defineConfig } from '@umijs/max';
 
 export default defineConfig({
-  antd: {},
+  antd: { dark: true, compact: true },
   access: {},
   model: {},
   initialState: {},
   request: {},
+  locale: {
+    default: 'en-US',
+    baseSeparator: '-',
+  },
+  theme: {
+    // algorithm: 'theme.darkAlgorithm',
+  },
   layout: {
     title: '@umijs/max',
   },
@@ -25,11 +32,10 @@ export default defineConfig({
       component: './Access',
     },
     {
-      name: ' CRUD 示例',
+      name: 'CRUD 示例',
       path: '/table',
       component: './Table',
     },
   ],
   npmClient: 'npm',
 });
-
