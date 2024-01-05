@@ -13,14 +13,14 @@ const olypicColumns: ProDescriptionsItemProps[] = [
     title: 'Athlete',
     dataIndex: 'athlete',
     sorter: (a, b) => {return a.athlete?.localeCompare(b.athlete);},
-    filter: true,
+    filters: true,
     //valueEnum: {}
   },
   {
     title: 'age',
     dataIndex: 'age',
     sorter: (a, b) => {return a.age - (b.age);},
-    filter: true,
+    filters: true,
     valueType: 'number',
     //valueEnum: {}
   },
@@ -29,7 +29,8 @@ const olypicColumns: ProDescriptionsItemProps[] = [
     dataIndex: 'country',
     sorter: (a, b) => {return a.country?.localeCompare(b.country);},
     filters: true,
-    //onFilter: true,
+    onFilter: true,
+    valueType: 'text',
     valueEnum: {
       "United States":{text: "United States"}, 
       "Russia":{text: "Russia"},
@@ -43,9 +44,11 @@ const olypicColumns: ProDescriptionsItemProps[] = [
     title: 'year',
     dataIndex: 'year',
     sorter: (a, b) => {return a.year - (b.year);},
-    filter: true,
+    filters: true,
+    onFilter: true,
     hideInSearch: true,
-    //valueEnum: {}
+    hideInTable: true,
+    valueEnum: {}
   },
   {
     title: 'date',
@@ -55,15 +58,16 @@ const olypicColumns: ProDescriptionsItemProps[] = [
       const bTime = new Date(b.date).getTime();
       return aTime - bTime;
     },
-    filter: true,
+    filters: true,
     hideInSearch: true,
+    valueType: 'date',
     //valueEnum: {}
   },
   {
     title: 'sport',
     dataIndex: 'sport',
     sorter: (a, b) => {return a.sport?.localeCompare(b.sport);},
-    filter: true,
+    filters: true,
     hideInSearch: true,
     //valueEnum: {}
   },
@@ -71,7 +75,7 @@ const olypicColumns: ProDescriptionsItemProps[] = [
     title: 'total',
     dataIndex: 'total',
     sorter: (a, b) => {return a.total - (b.total);},
-    filter: true,
+    filters: true,
     valueType: 'number',
     hideInSearch: true,
     //valueEnum: {}

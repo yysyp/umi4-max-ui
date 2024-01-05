@@ -4,3 +4,6 @@
 
 !可以将变量转为 boolean 值，所有的 truthy 和 falsy 都可以被转化，比如 null、undefined、数字 0 和空字符串取反都为 true，
 其余都为 false。
+
+
+protable v5: https://blog.csdn.net/iuaogh/article/details/109741048
