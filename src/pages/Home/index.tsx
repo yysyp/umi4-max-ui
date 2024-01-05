@@ -25,8 +25,10 @@ const HomePage: React.FC = () => {
               const algorithm = config.theme!.algorithm as MappingAlgorithm[];
               if (algorithm.includes(darkAlgorithm)) {
                 config.theme!.algorithm = [defaultAlgorithm];
+                localStorage.setItem('themeAlgorithm', 'defaultAlgorithm');
               } else {
                 config.theme!.algorithm = [darkAlgorithm];
+                localStorage.setItem('themeAlgorithm', 'darkAlgorithm');
               }
               return config;
             });

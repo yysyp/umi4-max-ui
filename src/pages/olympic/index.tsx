@@ -10,13 +10,60 @@ const { queryOlympicWinnerList } = services.OlympicController;
 
 const olypicColumns: ProDescriptionsItemProps[] = [
   {
-    title: 'a',
-    dataIndex: 'a',
-    //sorter: (o1, o2) => {return o1.a?.localeCompare(o2.a);},
-    //filter: true,
+    title: 'Athlete',
+    dataIndex: 'athlete',
+    sorter: (a, b) => {return a.athlete?.localeCompare(b.athlete);},
+    filter: true,
     //valueEnum: {}
   },
-  { title: 'b', dataIndex: 'b' },
+  {
+    title: 'age',
+    dataIndex: 'age',
+    sorter: (a, b) => {return a.age - (b.age);},
+    filter: true,
+    valueType: 'number',
+    //valueEnum: {}
+  },
+  {
+    title: 'country',
+    dataIndex: 'country',
+    sorter: (a, b) => {return a.country?.localeCompare(b.country);},
+    filter: true,
+    //valueEnum: {}
+  },
+  {
+    title: 'year',
+    dataIndex: 'year',
+    sorter: (a, b) => {return a.year - (b.year);},
+    filter: true,
+    //valueEnum: {}
+  },
+  {
+    title: 'date',
+    dataIndex: 'date',
+    sorter: (a, b) => {
+      const aTime = new Date(a.date).getTime();
+      const bTime = new Date(b.date).getTime();
+      return aTime - bTime;
+    },
+    filter: true,
+    //valueEnum: {}
+  },
+  {
+    title: 'sport',
+    dataIndex: 'sport',
+    sorter: (a, b) => {return a.sport?.localeCompare(b.sport);},
+    filter: true,
+    //valueEnum: {}
+  },
+  {
+    title: 'total',
+    dataIndex: 'total',
+    sorter: (a, b) => {return a.total - (b.total);},
+    filter: true,
+    valueType: 'number',
+    //valueEnum: {}
+  },
 ];
 
 const getQueryOlympicWinnerList = async (params, sorter, filter) => {
@@ -43,7 +90,7 @@ export default function Page() {
           <ProTable
             columns={olypicColumns}
             request={getQueryOlympicWinnerList}
-            search={false}
+            search={{}}
             pagination={{ pageSize: 10 }}
             rowKey="id"
           ></ProTable>

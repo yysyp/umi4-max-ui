@@ -2,7 +2,7 @@ import { defineConfig } from '@umijs/max';
 
 export default defineConfig({
   antd: {
-    dark: true,
+    // dark: true,
     compact: true,
     theme: {
       token: {

@@ -19,8 +19,14 @@ export const layout = () => {
 };
 
 export const antd: RuntimeConfig = (memo) => {
+  let themeAlgorithm = localStorage.getItem('themeAlgorithm');
   memo.theme ??= {};
-  memo.theme.algorithm = [theme.darkAlgorithm];
+  if (themeAlgorithm == 'defaultAlgorithm') {
+    memo.theme.algorithm = [theme.defaultAlgorithm];
+  } else {
+    memo.theme.algorithm = [theme.darkAlgorithm];
+  }
+  //memo.theme.algorithm = [theme.darkAlgorithm];
 
   memo.appConfig = {
     message: {
