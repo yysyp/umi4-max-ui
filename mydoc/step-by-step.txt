@@ -61,6 +61,6 @@
 			}
 		c. use command "umi plugin list" to check whether plugin enabled.	
 	3. use umi generator to generate page, i.e. 
-		a. umi g page foo	
+		a. umi g page foo    OR    npx umi g    OR    npx max g	
 		b. add "route" config to "routes" in ".umirc.ts": { path: "/foo", component: "foo" }
 		

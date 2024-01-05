@@ -1,5 +1,8 @@
 // 运行时配置
 
+import { RuntimeConfig } from '@umijs/max';
+import { theme } from 'antd';
+
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
 export async function getInitialState(): Promise<{ name: string }> {
@@ -13,4 +16,17 @@ export const layout = () => {
       locale: false,
     },
   };
+};
+
+export const antd: RuntimeConfig = (memo) => {
+  memo.theme ??= {};
+  memo.theme.algorithm = [theme.darkAlgorithm];
+
+  memo.appConfig = {
+    message: {
+      maxCount: 3,
+    },
+  };
+
+  return memo;
 };

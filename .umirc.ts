@@ -1,7 +1,17 @@
 import { defineConfig } from '@umijs/max';
 
 export default defineConfig({
-  antd: { dark: true, compact: true },
+  antd: {
+    dark: true,
+    compact: true,
+    theme: {
+      token: {
+        colorPrimary: '#f5222d',
+      },
+      // algorithm: 'theme.darkAlgorithm',
+    },
+    appConfig: {},
+  },
   access: {},
   model: {},
   initialState: {},
@@ -10,9 +20,7 @@ export default defineConfig({
     default: 'en-US',
     baseSeparator: '-',
   },
-  theme: {
-    // algorithm: 'theme.darkAlgorithm',
-  },
+
   layout: {
     title: '@umijs/max',
   },
@@ -36,6 +44,12 @@ export default defineConfig({
       path: '/table',
       component: './Table',
     },
+    {
+      name: 'olympic table',
+      path: 'olympic',
+      component: './olympic',
+    },
   ],
   npmClient: 'npm',
+  dva: {},
 });

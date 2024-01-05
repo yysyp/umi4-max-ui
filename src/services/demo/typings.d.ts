@@ -65,4 +65,54 @@ declare namespace API {
   }
 
   type definitions_0 = null;
+
+  /* ----------------- olympic begin ------------ */
+
+  interface OlympicInfo {
+    id?: string;
+    athlete?: string;
+    age?: number;
+    country?: string;
+    year?: number;
+    date?: date;
+    sport?: string;
+    gold?: number;
+    silver?: number;
+    bronze?: number;
+    total?: number;
+  }
+
+  interface OlympicInfoVO {
+    athlete?: string;
+    age?: number;
+    country?: string;
+    year?: number;
+    date?: date;
+    sport?: string;
+    gold?: number;
+    silver?: number;
+    bronze?: number;
+    total?: number;
+  }
+
+  interface Result_OlympicInfo_ {
+    success?: boolean;
+    errorMessage?: string;
+    data?: OlympicInfo;
+  }
+
+  interface PageInfo_OlympicInfo_ {
+    current?: number;
+    pageSize?: number;
+    total?: number;
+    list?: Array<OlympicInfo>;
+  }
+
+  interface Result_PageInfo_OlympicInfo__ {
+    success?: boolean;
+    errorMessage?: string;
+    data?: PageInfo_OlympicInfo_;
+  }
+
+  /* ----------------- olympic end ------------ */
 }
