@@ -4,7 +4,10 @@ import {
   ProCard,
   ProDescriptionsItemProps,
   ProTable,
+  stringify,
 } from '@ant-design/pro-components';
+import {useRef} from 'react';
+import { Button, Flex } from 'antd';
 
 const { queryOlympicWinnerList } = services.OlympicController;
 
@@ -83,7 +86,7 @@ const olypicColumns: ProDescriptionsItemProps[] = [
 ];
 
 const getQueryOlympicWinnerList = async (params, sorter, filter) => {
-  console.log('fetching backend data');
+  console.log('fetching backend data ||params:'+stringify(params)+"\t||sorter:"+stringify(sorter)+"\t||filter:"+stringify(filter));
   const { data, success } = await queryOlympicWinnerList({
     ...params,
     sorter,
@@ -94,13 +97,34 @@ const getQueryOlympicWinnerList = async (params, sorter, filter) => {
     success,
   };
 };
+
+interface ActionType {
+  reload: (resetPageIndex?: boolean) => void;
+  reloadAndRest: () => void;
+  reset: () => void;
+  clearSelected?: () => void;
+  startEditable: (rowKey: Key) => boolean;
+  cancelEditable: (rowKey: Key) => boolean;
+}
+
+
+
 export default function Page() {
+  
+  const ref = useRef<ActionType>();
+
   return (
     <PageContainer
       header={{
         title: 'Olympic Info',
       }}
     >
+      <Flex gap="small" wrap="wrap">
+        <Button type="primary" onClick={() => {
+          console.log("===>ref="+stringify(ref.current));
+          ref.current?.reload();
+        }}>Primary Button</Button>
+      </Flex>
       <ProCard tabs={{ type: 'card' }}>
         <ProCard.TabPane key="tab1" tab="tab1">
           <ProTable
@@ -109,6 +133,7 @@ export default function Page() {
             search={{collapsed: false, collapseRender: () => null}}
             pagination={{ defaultPageSize: 10 }}
             rowKey="id"
+            actionRef={ref}
           ></ProTable>
         </ProCard.TabPane>
       </ProCard>
