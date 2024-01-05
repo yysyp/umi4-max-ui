@@ -28,14 +28,23 @@ const olypicColumns: ProDescriptionsItemProps[] = [
     title: 'country',
     dataIndex: 'country',
     sorter: (a, b) => {return a.country?.localeCompare(b.country);},
-    filter: true,
-    //valueEnum: {}
+    filters: true,
+    //onFilter: true,
+    valueEnum: {
+      "United States":{text: "United States"}, 
+      "Russia":{text: "Russia"},
+      "Australia":{text: "Australia"},
+      "Canada":{text: "Canada"},
+      "Norway":{text: "Norway"},
+      "China":{text: "China"},
+    },
   },
   {
     title: 'year',
     dataIndex: 'year',
     sorter: (a, b) => {return a.year - (b.year);},
     filter: true,
+    hideInSearch: true,
     //valueEnum: {}
   },
   {
@@ -47,6 +56,7 @@ const olypicColumns: ProDescriptionsItemProps[] = [
       return aTime - bTime;
     },
     filter: true,
+    hideInSearch: true,
     //valueEnum: {}
   },
   {
@@ -54,6 +64,7 @@ const olypicColumns: ProDescriptionsItemProps[] = [
     dataIndex: 'sport',
     sorter: (a, b) => {return a.sport?.localeCompare(b.sport);},
     filter: true,
+    hideInSearch: true,
     //valueEnum: {}
   },
   {
@@ -62,6 +73,7 @@ const olypicColumns: ProDescriptionsItemProps[] = [
     sorter: (a, b) => {return a.total - (b.total);},
     filter: true,
     valueType: 'number',
+    hideInSearch: true,
     //valueEnum: {}
   },
 ];
@@ -90,8 +102,8 @@ export default function Page() {
           <ProTable
             columns={olypicColumns}
             request={getQueryOlympicWinnerList}
-            search={{}}
-            pagination={{ pageSize: 10 }}
+            search={{collapsed: false, collapseRender: () => null}}
+            pagination={{ defaultPageSize: 10 }}
             rowKey="id"
           ></ProTable>
         </ProCard.TabPane>
