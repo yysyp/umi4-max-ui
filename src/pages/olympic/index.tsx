@@ -12,7 +12,9 @@ const olypicColumns: ProDescriptionsItemProps[] = [
   {
     title: 'a',
     dataIndex: 'a',
-    //sorter: (a, b) => {return a.}
+    //sorter: (o1, o2) => {return o1.a?.localeCompare(o2.a);},
+    //filter: true,
+    //valueEnum: {}
   },
   { title: 'b', dataIndex: 'b' },
 ];
