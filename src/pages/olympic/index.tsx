@@ -6,7 +6,7 @@ import {
   ProTable,
   stringify,
 } from '@ant-design/pro-components';
-import {useRef} from 'react';
+import {useRef, useState} from 'react';
 import { Button, Flex } from 'antd';
 
 const { queryOlympicWinnerList } = services.OlympicController;
@@ -98,20 +98,19 @@ const getQueryOlympicWinnerList = async (params, sorter, filter) => {
   };
 };
 
-interface ActionType {
-  reload: (resetPageIndex?: boolean) => void;
-  reloadAndRest: () => void;
-  reset: () => void;
-  clearSelected?: () => void;
-  startEditable: (rowKey: Key) => boolean;
-  cancelEditable: (rowKey: Key) => boolean;
-}
-
-
+// interface ActionType {
+//   reload: (resetPageIndex?: boolean) => void;
+//   reloadAndRest: () => void;
+//   reset: () => void;
+//   clearSelected?: () => void;
+//   startEditable: (rowKey: Key) => boolean;
+//   cancelEditable: (rowKey: Key) => boolean;
+// }
 
 export default function Page() {
   
-  const ref = useRef<ActionType>();
+  const ref = useRef();
+  //let params = useState({});
 
   return (
     <PageContainer
@@ -121,7 +120,7 @@ export default function Page() {
     >
       <Flex gap="small" wrap="wrap">
         <Button type="primary" onClick={() => {
-          console.log("===>ref="+stringify(ref.current));
+          console.log("===>ref="+stringify(ref.current)+"\t||params="+stringify(params));
           ref.current?.reload();
         }}>Primary Button</Button>
       </Flex>

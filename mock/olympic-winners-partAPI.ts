@@ -38487,9 +38487,19 @@ const olympicWinners = [
 
 export default {
   'GET /api/v1/queryOlympicWinnerList': (req: any, res: any) => {
+    let olympicWinnersFiltered = olympicWinners;
+    if (req.query["athlete"]) {
+      olympicWinnersFiltered = olympicWinnersFiltered.filter((e) => {return e.athlete == req.query["athlete"]});
+    }
+    if (req.query["age"]) {
+      olympicWinnersFiltered = olympicWinnersFiltered.filter((e) => {return e.age == req.query["age"]});
+    }
+    if (req.query["country"]) {
+      olympicWinnersFiltered = olympicWinnersFiltered.filter((e) => {return e.country == req.query["country"]});
+    }
     res.json({
       success: true,
-      data: { list: olympicWinners },
+      data: { list: olympicWinnersFiltered },
       errorCode: 0,
     });
   },
