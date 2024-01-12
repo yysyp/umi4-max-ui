@@ -51,6 +51,7 @@ export default defineConfig({
   },
 
   layout: {
+    //layout: 'mix',
     title: '@umijs/max',
   },
   routes: [
@@ -77,6 +78,11 @@ export default defineConfig({
       name: 'olympic table',
       path: 'olympic',
       component: './olympic',
+    },
+    {
+      name: 'TestPg1',
+      path: 'TestPg1',
+      component: './TestPg1',
     },
   ],
   npmClient: 'npm',

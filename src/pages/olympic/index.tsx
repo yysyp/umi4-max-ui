@@ -133,6 +133,7 @@ export default function Page() {
             pagination={{ defaultPageSize: 10 }}
             rowKey="id"
             actionRef={ref}
+            sticky={{ offsetHeader: 48 }}
           ></ProTable>
         </ProCard.TabPane>
       </ProCard>
