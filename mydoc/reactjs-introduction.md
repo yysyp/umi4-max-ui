@@ -70,3 +70,23 @@ ref={ref}
 export default MyInput;
 
 ```
+
+### 浏览器是无法读取直接解析 JSX 的。我们的 header 表达式经过（ Babel 或 Parcel 之类的工具）编译之后是这样的：
+JSX
+Copy to Clipboard
+const header = <header>
+  <h1>Mozilla Developer Network</h1>
+</header>;
+
+JS
+Copy to Clipboard
+const header = React.createElement(
+  "header",
+  null,
+  React.createElement("h1", null, "Mozilla Developer Network"),
+);
+
+### 在React中，props（属性）是一种重要的数据传递机制，用于在组件之间传递数据。
+在子组件中，props是只读的，不能直接修改。如果需要修改prop的值，可以通过回调函数(父组件传传入的函数引用)或触发事件的方式通知父组件进行更新。
+
+

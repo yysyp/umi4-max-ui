@@ -7,7 +7,36 @@ export default defineConfig({
     theme: {
       token: {
         colorPrimary: '#f5222d',
+        fontSize: 13,
+        colorLink: "#f5222d",
+        colorInfo: "#1d262c",
+        colorSuccess: "#00847f",
+        colorWarning: "#ffbb33",
+        colorError: "#a8000b",
+        // colorBgBase: "#eeeeee", //this should not set to let go with theme
+        // colorTextBase: "#000000", //this should not set to let go with theme
+        borderRadius: 1,
+        wireframe: true,
       },
+      components: {
+        Button: {
+          borderRadius: 0,
+          primaryShadow: "",
+          fontWeight: 600,
+          colorPrimary: '#00222d',
+        },
+        Switch: {
+          colorPrimary: '#888888',
+        },
+        Card: {
+          colorGgContainer: "rgb(30, 38, 45)",
+          colorBorderSecondary: "rgb(60, 80, 90)",
+        },
+        Table: {
+          borderColor: "rgba(255, 255, 255, 0.1)",
+        }
+      },
+
       // algorithm: 'theme.darkAlgorithm',
     },
     appConfig: {},
