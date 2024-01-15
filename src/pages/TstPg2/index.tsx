@@ -6,6 +6,9 @@ import { SheetComponent, Switcher } from '@antv/s2-react';
 import insertCss from 'insert-css';
 import '@antv/s2-react/dist/style.min.css';
 
+//https://antv-s2.gitee.io/zh/examples/react-component/switcher#pivot
+//https://antv-s2.gitee.io/zh/examples/react-component/switcher#pivot-with-children
+
 const s2Options = {
   width: 600,
   height: 480,
