@@ -86,6 +86,7 @@ export default function SwitcherDemo() {
   return (
     
     <div>
+      <a href='https://antv-s2.gitee.io/zh/examples/theme/custom#custom-manual-palette'>https://antv-s2.gitee.io/zh/examples/theme/custom#custom-manual-palette</a> <br/>
       <a href='http://localhost:8000/api/v1/queryPenPapers'>http://localhost:8000/api/v1/queryPenPapers</a>
       <br/>
       <Switcher {...switcherFields} onSubmit={onSubmit} />
@@ -94,8 +95,20 @@ export default function SwitcherDemo() {
         adaptive={false}
         dataCfg={{ data, fields }}
         options={s2Options}
+        // themeCfg={{
+        //   name: 'colorful',
+        //   theme: {
+        //     dataCell: {
+        //       cell: {
+        //         crossBackgroundColor: 'pink'
+        //       }
+        //     }
+        //   }
+        // }}
+        themeCfg={{palette: {"brandColor":"#3471F9","semanticColors":{"red":"#FF4D4F","green":"#29A294","yellow":"#FAAD14"},"others":{"highlight":"#87B5FF","results":"#F0F7FF"},"basicColorRelations":[{"basicColorIndex":1,"standardColorIndex":0},{"basicColorIndex":2,"standardColorIndex":1},{"basicColorIndex":3,"standardColorIndex":5},{"basicColorIndex":4,"standardColorIndex":6},{"basicColorIndex":5,"standardColorIndex":6},{"basicColorIndex":6,"standardColorIndex":6},{"basicColorIndex":7,"standardColorIndex":5},{"basicColorIndex":9,"standardColorIndex":1},{"basicColorIndex":10,"standardColorIndex":4},{"basicColorIndex":11,"standardColorIndex":4},{"basicColorIndex":12,"standardColorIndex":5}],"basicColors":["#FFFFFF","#000000","#E1EAFE","#101e3f","#0f224d","#000000","#ffffff","#000000","#000000","#E1EAFE","#5286FA","#5286FA","#3471F9","#ffffff","#ffffff"]}}}
       />
     </div>
+    
   );
 };
 
