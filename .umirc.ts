@@ -89,6 +89,17 @@ export default defineConfig({
       path: 'TstPg2',
       component: './TstPg2',
     },
+    {
+      name: 'LineChart',
+      path: 'LineChart',
+      component: './LineChart',
+    },
+    {
+      name: 'LineChartMulti',
+      path: 'LineChartMulti',
+      component: './LineChartMulti',
+    },
+    
   ],
   npmClient: 'npm',
   dva: {},
