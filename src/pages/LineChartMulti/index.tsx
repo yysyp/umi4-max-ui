@@ -244,14 +244,37 @@ const DemoLine: React.FC = () => {
       text: '指定折线颜色',
     },
     padding: 'auto',
-    forceFit: true,
+    //forceFit: true,
     data,
     xField: 'date',
     yField: 'value',
-    yAxis: { label: { formatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`) } },
+    // xAxis: {
+    //   line: { style: { stroke: '#FAAD14' } },
+    //   label: {
+    //     style: {
+    //       stroke: '#FAAD14',
+    //       fontSize: 12,
+    //       fontWeight: 300,
+    //       fontFamily: 'Apercu',
+    //     },
+    //   },
+    // },
+    // yAxis: { label: { formatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`) } },
     legend: { position: 'right-top' },
     seriesField: 'type',
-    color: ['#1979C9', '#D62A0D', '#FAA219'],
+    //renderer: 'svg',
+    // lineStyle: (d) => {
+    //   if (d === 'register') {
+    //     return {
+    //       lineDash: [2, 2],
+    //       opacity: 1,
+    //     };
+    //   }
+    //   return { opacity: 0.2 };
+    // },
+    colorField: 'type',
+    //color: ['red', 'blue', 'green'],
+    //color: ['#1979C9', '#D62A0D', '#FAA219'],
     responsive: true,
   };
   return <Line {...config} />;
