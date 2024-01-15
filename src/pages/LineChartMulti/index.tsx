@@ -6,7 +6,15 @@ import styles from './index.less';
 
 //https://v0-charts.ant.design/demos/line#%E5%A4%9A%E6%8A%98%E7%BA%BF%E5%9B%BE-1
 import { Line } from '@ant-design/charts';
+import { MappingAlgorithm, Space, Switch, theme } from 'antd';
+import { useAntdConfig, useAntdConfigSetter } from 'umi';
+
+const { darkAlgorithm, defaultAlgorithm } = theme;
+
+
 const DemoLine: React.FC = () => {
+  const antdConfig = useAntdConfig();
+
   const data = [
     {
       date: '2018/8/1',
@@ -252,6 +260,7 @@ const DemoLine: React.FC = () => {
     //   line: { style: { stroke: '#FAAD14' } },
     //   label: {
     //     style: {
+    //       fill: 'red',
     //       stroke: '#FAAD14',
     //       fontSize: 12,
     //       fontWeight: 300,
@@ -259,7 +268,41 @@ const DemoLine: React.FC = () => {
     //     },
     //   },
     // },
-    // yAxis: { label: { formatter: (v) => `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`) } },
+    // yAxis: {
+    //   tickInterval: 10, 
+    //   label: { 
+    //     formatter: (v) => {`${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`) },
+    //     style: {
+    //       fill: 'red', 
+    //     }, 
+    //   },
+    //   line: {
+    //     style: {
+    //       stroke: 'red',
+    //     }
+        
+    //   }
+    // },
+    // isPercent: true,
+    // isStack: true,
+    
+    // label: {
+    //   position: 'middle',
+    //   content: function content(item) {
+    //      //return ''.concat(item.y.toFixed(2), '%');
+    //      return item.y + 100;
+    //   },
+    // },
+    point: {
+      visible: true,
+      size: 3,
+      //shape: 'square',//'diamond',
+      style: {
+        fill: 'white',
+        //stroke: '#2593fc',
+        lineWidth: 2,
+      },
+    },
     legend: { position: 'right-top' },
     seriesField: 'type',
     //renderer: 'svg',
@@ -276,7 +319,18 @@ const DemoLine: React.FC = () => {
     //color: ['red', 'blue', 'green'],
     //color: ['#1979C9', '#D62A0D', '#FAA219'],
     responsive: true,
+    label: {
+      style: {
+        fill: 'red',
+        //stroke: 'red',
+        opacity: 0.6,
+        fontSize: 10,
+        position: 'top',
+      },
+    },
+    theme: antdConfig?.theme?.algorithm.includes(darkAlgorithm)? 'dark' : 'light',
   };
-  return <Line {...config} />;
+  return <Line {...config} 
+  style={{ width: '50%', height: '300px', padding: '10px 40px 20px 40px', fontSize: '12px' }}/>;
 };
 export default DemoLine;

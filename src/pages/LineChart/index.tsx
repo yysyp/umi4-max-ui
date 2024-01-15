@@ -1,8 +1,13 @@
 import React from 'react';
 import styles from './index.less';
 import { Line } from '@ant-design/charts';
+import { MappingAlgorithm, Space, Switch, theme } from 'antd';
+import { useAntdConfig, useAntdConfigSetter } from 'umi';
 
+const { darkAlgorithm, defaultAlgorithm } = theme;
 const Page: React.FC = () => {
+  const antdConfig = useAntdConfig();
+  
   const data = [
     { year: '1991', value: 3 },
     { year: '1992', value: 4 },
@@ -23,6 +28,7 @@ const Page: React.FC = () => {
       size: 5,
       shape: 'diamond',
     },
+    theme: antdConfig?.theme?.algorithm.includes(darkAlgorithm)? 'dark' : 'light',
   };
   return <Line {...config} />;
 };
