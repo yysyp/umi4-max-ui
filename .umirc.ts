@@ -84,6 +84,11 @@ export default defineConfig({
       path: 'TestPg1',
       component: './TestPg1',
     },
+    {
+      name: 'TstPg2',
+      path: 'TstPg2',
+      component: './TstPg2',
+    },
   ],
   npmClient: 'npm',
   dva: {},
