@@ -63,4 +63,12 @@
 	3. use umi generator to generate page, i.e. 
 		a. umi g page foo    OR    npx umi g    OR    npx max g	
 		b. add "route" config to "routes" in ".umirc.ts": { path: "/foo", component: "foo" }
-		
+
+#Deploy to docker nginx:
+	npm install && npm run build
+	docker build -t umiapp:v1 -f Dockerfile .
+	docker run --rm -it -p 8080:8080 umiapp:v1
+	visit: http://localhost:8080
+
+#Deploy to docker nodejs:
+			
