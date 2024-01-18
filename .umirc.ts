@@ -60,6 +60,10 @@ export default defineConfig({
       redirect: '/home',
     },
     {
+      path: '/index.html',
+      redirect: '/home',
+    },
+    {
       name: '首页',
       path: '/home',
       component: './Home',
@@ -102,5 +106,16 @@ export default defineConfig({
     
   ],
   npmClient: 'npm',
+  base: "/myui/",
+  publicPath: process.env.NODE_ENV === 'production' ? "/myui/" : "/",
+  outputPath: "dist/myui",
+  manifest: { basePath: "/myui" },
+  // history: {  
+  //   type: 'hash',
+  // },
+  // hash: true,
+  define: {
+    PUBLIC_PATH: "/myui/",
+  },
   dva: {},
 });
