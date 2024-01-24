@@ -103,6 +103,11 @@ export default defineConfig({
       path: 'LineChartMulti',
       component: './LineChartMulti',
     },
+    {
+      name: 'PivotTable',
+      path: 'PivotTable',
+      component: './PivotTable',
+    },
     
   ],
   npmClient: 'npm',
