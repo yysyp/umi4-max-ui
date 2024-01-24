@@ -64,7 +64,7 @@
 		a. umi g page foo    OR    npx umi g    OR    npx max g	
 		b. add "route" config to "routes" in ".umirc.ts": { path: "/foo", component: "foo" }
 
-#Deploy to docker nginx:
+# Deploy to docker nginx:
 	npm install && npm run build
 	docker build -t umiappx:v1 -f Dockerfile .
 	docker run --rm -it -p 8080:8080 umiappx:v1
@@ -75,7 +75,7 @@
 - If Ingress Nginx doesn't rewrite the request URL, then the Ingress Nginx will be transparent (it's only forwording).
   	
 
-#Deploy to docker nodejs:
+# Deploy to docker nodejs:
 	docker build -t umiappn:v1 -f Dockerfile-nodejs .
 	docker run --rm -it -p 8000:8000 umiappn:v1
 	visit: http://localhost:8000/myui
