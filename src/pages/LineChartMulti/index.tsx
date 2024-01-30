@@ -329,31 +329,8 @@ const DemoLine: React.FC = () => {
       },
     },
     tooltip: {
-      items: [{name: "xx", value: 12}],
-      // customContent: (title: any, items: any): any => (
-      //   <div style={{ padding: '12px 14px', fontSize: '12px', width: '180px', height: '68px' }}>
-      //     {items && items.length === 3 && (
-      //       <>
-      //         <p className={styles.firstTg}>
-      //           <span className={styles.yellowTip} />
-      //           <span className={styles.scoendTg}>充值</span>
-      //           {items[0] && items[0].data.value}
-      //         </p>
-      //         <p className={styles.firstTg}>
-      //           <span className={styles.greenTip} />
-      //           <span className={styles.scoendTg}>消费</span>
-      //           {items[1] && items[1].data.value}
-      //         </p>
-      //         <p className={styles.firstTg}>
-      //           <span className={styles.greenTip} />
-      //           <span className={styles.scoendTg}>消费</span>
-      //           {items[1] && items[1].data.value}
-      //         </p>
-      //       </>
-      //     )}
-          
-      //   </div>
-      // ),
+      title: 'a',
+      items: [{ channel: 'x' }, { channel: 'y' }],
     },
 
     theme: antdConfig?.theme?.algorithm.includes(darkAlgorithm)? 'dark' : 'light',

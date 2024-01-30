@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './index.less';
 import { Line, LineConfig } from '@ant-design/charts';
+//import { Line, LineConfig } from '@ant-design/plots';
 import { MappingAlgorithm, Space, Switch, theme } from 'antd';
 import { useAntdConfig, useAntdConfigSetter } from 'umi';
 
@@ -30,25 +31,68 @@ const Page: React.FC = () => {
     },
     label: { style: { fill: 'black' } },
     //line: { style: { fill: 'black' } },
-    annotations: [{
-      type: 'axisX',
-      tickCount: 25,
-      title: 'My X-Values',
-      labelFormatter: (e) => { return e+" year"}, 
-      label: { style: { fill: 'black' } },
-      //line: { style: { fill: 'red' } },
-    },
-    {
-      type: 'axisY',
-      tickCount: 25,
-      title: 'My Y-Values',
-    },
+    // annotations: [{
+    //   type: 'axisX',
+    //   tickCount: 25,
+    //   title: 'My X-Values',
+    //   labelFormatter: (e) => { return e+" year"}, 
+    //   label: { style: { fill: 'black',stroke: 'red',
+    //    } },
+    //   //line: { style: { fill: 'red' } },
+    //   style: {
+    //     stroke: 'red',
+    //     fill: "red",
+    //   }
+    // },
+    // {
+    //   type: "lineX",
+    //   xField: '0',
+    //   style: { stroke: "#F4664A", strokeOpacity: 1, lineWidth: 1 },
+    // },
+    // {
+    //   type: 'axisY',
+    //   tickCount: 25,
+    //   //title: 'My Y-Values',
+    // },
     
-    ],
+    // ],
     
+    axis: {
+      x: {
+        title: 'My X-Values',
+        titleStroke: 'red',
+        line: true,
+        arrow: true,
+        lineLineWidth: 2,
+        lineStroke: 'red',
+        tick: true,
+        tickStroke: 'red',
+        label: true,
+        labelFill: 'red',
+        grid: true,
+        gridLineWidth: 2,
+        gridStroke: 'green',
+      },
+      y: { 
+        title: 'My Y-Values',
+        titleStroke: 'red',
+        line: true,
+        arrow: true,
+        lineLineWidth: 2,
+        lineStroke: 'red',
+        tick: true,
+        tickStroke: 'red',
+        label: true,
+        labelFill: 'red',
+        grid: true,
+        gridLineWidth: 2,
+        gridStroke: 'green',
+      },
+    },
     // theme: antdConfig?.theme?.algorithm.includes(darkAlgorithm)? 'dark' : 'light',
   };
-  
+  //https://ant-design-charts-next.antgroup.com/options/plots/component/axis
+
   return (<div style={{backgroundColor: "rgb(100, 100, 100)"}}><Line {...config} /></div>);
 };
 export default Page;
