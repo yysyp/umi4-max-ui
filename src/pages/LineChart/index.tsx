@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.less';
-import { Line } from '@ant-design/charts';
+import { Line, LineConfig } from '@ant-design/charts';
 import { MappingAlgorithm, Space, Switch, theme } from 'antd';
 import { useAntdConfig, useAntdConfigSetter } from 'umi';
 
@@ -19,7 +19,7 @@ const Page: React.FC = () => {
     { year: '1998', value: 9 },
     { year: '1999', value: 13 },
   ];
-  const config = {
+  const config: LineConfig = {
     data,
     height: 400,
     xField: 'year',
@@ -28,8 +28,27 @@ const Page: React.FC = () => {
       size: 5,
       shape: 'diamond',
     },
-    theme: antdConfig?.theme?.algorithm.includes(darkAlgorithm)? 'dark' : 'light',
+    label: { style: { fill: 'black' } },
+    //line: { style: { fill: 'black' } },
+    annotations: [{
+      type: 'axisX',
+      tickCount: 25,
+      title: 'My X-Values',
+      labelFormatter: (e) => { return e+" year"}, 
+      label: { style: { fill: 'black' } },
+      //line: { style: { fill: 'red' } },
+    },
+    {
+      type: 'axisY',
+      tickCount: 25,
+      title: 'My Y-Values',
+    },
+    
+    ],
+    
+    // theme: antdConfig?.theme?.algorithm.includes(darkAlgorithm)? 'dark' : 'light',
   };
-  return <Line {...config} />;
+  
+  return (<div style={{backgroundColor: "rgb(100, 100, 100)"}}><Line {...config} /></div>);
 };
 export default Page;

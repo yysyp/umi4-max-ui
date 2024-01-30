@@ -5,7 +5,7 @@ import styles from './index.less';
 // import { Line } from '@ant-design/charts';
 
 //https://v0-charts.ant.design/demos/line#%E5%A4%9A%E6%8A%98%E7%BA%BF%E5%9B%BE-1
-import { Line } from '@ant-design/charts';
+import { Line, LineConfig } from '@ant-design/charts';
 import { MappingAlgorithm, Space, Switch, theme } from 'antd';
 import { useAntdConfig, useAntdConfigSetter } from 'umi';
 
@@ -242,7 +242,7 @@ const DemoLine: React.FC = () => {
       value: 176,
     },
   ];
-  const config = {
+  const config: LineConfig = {
     title: {
       visible: true,
       text: '多折线图',
@@ -328,6 +328,34 @@ const DemoLine: React.FC = () => {
         position: 'top',
       },
     },
+    tooltip: {
+      items: [{name: "xx", value: 12}],
+      // customContent: (title: any, items: any): any => (
+      //   <div style={{ padding: '12px 14px', fontSize: '12px', width: '180px', height: '68px' }}>
+      //     {items && items.length === 3 && (
+      //       <>
+      //         <p className={styles.firstTg}>
+      //           <span className={styles.yellowTip} />
+      //           <span className={styles.scoendTg}>充值</span>
+      //           {items[0] && items[0].data.value}
+      //         </p>
+      //         <p className={styles.firstTg}>
+      //           <span className={styles.greenTip} />
+      //           <span className={styles.scoendTg}>消费</span>
+      //           {items[1] && items[1].data.value}
+      //         </p>
+      //         <p className={styles.firstTg}>
+      //           <span className={styles.greenTip} />
+      //           <span className={styles.scoendTg}>消费</span>
+      //           {items[1] && items[1].data.value}
+      //         </p>
+      //       </>
+      //     )}
+          
+      //   </div>
+      // ),
+    },
+
     theme: antdConfig?.theme?.algorithm.includes(darkAlgorithm)? 'dark' : 'light',
   };
   return <Line {...config} 
