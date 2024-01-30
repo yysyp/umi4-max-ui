@@ -18,15 +18,27 @@ const pivottableData = [
 ["xd2", "g3", "ftr", 14, 78],
 ];
 
-export default function Page() {
-  return (
-    
-    <div>
-      <h1 className={styles.title}>Pivot Table</h1>
-      <PageContainer ghost>
-        <PivotTableUI data={pivottableData}
-        ></PivotTableUI>
-      </PageContainer>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = props;
+  }
+
+  render() {
+      return (
+        <PageContainer ghost>
+          <PivotTableUI
+              data={pivottableData}
+              rows={["school", "class"]}
+              cols={["age"]}
+              vals={["score"]}
+              aggregatorName={"List Unique Values"}
+              onChange={s => this.setState(s)}
+              {...this.state}
+          />
+        </PageContainer>
+      );
+  }
 }
+
+export default App;
