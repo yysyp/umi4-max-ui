@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styles from './index.less';
 import PivotTableUI from 'react-pivottable/PivotTableUI';
+import {sortAs} from 'react-pivottable/Utilities';
 import 'react-pivottable/pivottable.css';
 import { PageContainer } from '@ant-design/pro-components';
 
@@ -35,6 +36,10 @@ class App extends React.Component {
               aggregatorName={"List Unique Values"}
               onChange={s => this.setState(s)}
               {...this.state}
+              sorters={{age: sortAs([16, 13, 11, 14, 12])}}
+              //hiddenAttributes={["name"]}
+              // this doesn't work hiddenFromAggregators={["Totals"]}
+              //rendererName={"Heatmap"}
           />
         </PageContainer>
       );

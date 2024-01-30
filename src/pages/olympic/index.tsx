@@ -134,6 +134,7 @@ export default function Page() {
             rowKey="id"
             actionRef={ref}
             sticky={{ offsetHeader: 48 }}
+            columnsState={{defaultValue: {"country": {"show": false}, "age": {"show": false}}}}
           ></ProTable>
         </ProCard.TabPane>
       </ProCard>
