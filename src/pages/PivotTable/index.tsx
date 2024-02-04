@@ -4,6 +4,7 @@ import PivotTableUI from 'react-pivottable/PivotTableUI';
 import {sortAs} from 'react-pivottable/Utilities';
 import 'react-pivottable/pivottable.css';
 import { PageContainer } from '@ant-design/pro-components';
+import { MenuFoldOutlined } from '@ant-design/icons';
 
 const pivottableData = [
 ["school", "class", "name", "age", "score"],
@@ -19,15 +20,48 @@ const pivottableData = [
 ["xd2", "g3", "ftr", 14, 78],
 ];
 
+const createCss = (cssText) => {
+  const cssEle = document.createElement('style');
+  cssEle.type = 'text/css';
+  cssEle.appendChild(document.createTextNode(cssText));
+  return cssEle;
+}
+
+const removeCss = (cssEle) => {
+  if (cssEle && cssEle.parentNode) {
+    cssEle.parentNode.removeChild(cssEle);
+  }
+}
+
 class App extends React.Component {
   constructor(props) {
       super(props);
       this.state = props;
+      this.state = {
+        hideMenu: false,
+      };
+  }
+
+  componentWillUnmount(): void {
+    if (this.state.hideMenu) {
+      removeCss(this.state.hideMenu);
+      this.state.hideMenu = false;
+    }
   }
 
   render() {
       return (
         <PageContainer ghost>
+          <MenuFoldOutlined onClick={() => {
+            if (this.state.hideMenu) {
+              removeCss(this.state.hideMenu);
+              this.state.hideMenu = false;
+            } else {
+              let cssEle = createCss('.pvtAxisContainer, .pvtVals, .pvtDropdownValue { display: none; }');
+              this.state.hideMenu = cssEle;
+              document.head.appendChild(cssEle);
+            }
+          }}></MenuFoldOutlined>
           <PivotTableUI
               data={pivottableData}
               rows={["school", "class"]}
