@@ -146,7 +146,9 @@ const TableList: React.FC<unknown> = () => {
 
   const props: UploadProps = {
     name: 'file',
-    action: '/api/v1/upload',
+    //action: '/api/v1/upload', //js mock api
+    //action: "/proxyit/api/upload/file?key=umi4-max-ui",
+    action: "/api/upload/file?key=umi4-max-ui",
     maxCount: 1,
     method: "POST",
     accept: ".xls,.xlsx",

@@ -108,8 +108,25 @@ export default defineConfig({
       path: 'PivotTable',
       component: './PivotTable',
     },
+    {
+      name: 'FormSample',
+      path: 'FormSample',
+      component: './FormSample',
+    }
     
   ],
+  proxy: {
+    '/proxyit': {
+      'target': 'http://localhost:8080/', //this is the backend server base url
+      'changeOrigin': true,
+      'pathRewrite': { '^/proxyit': '' }, //remove proxyit in uri
+    },
+    '/api': {
+      'target': 'http://localhost:8080/', //this is the backend server base url
+      'changeOrigin': true,
+      'pathRewrite': { '^/api': '/api' }, //keep the /api in uri
+    }
+  },
   npmClient: 'npm',
   base: "/myui/",
   publicPath: process.env.NODE_ENV === 'production' ? "/myui/" : "/",
