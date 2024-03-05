@@ -85,33 +85,38 @@ export default defineConfig({
     },
     {
       name: 'TestPg1',
-      path: 'TestPg1',
+      path: 'testPg1',
       component: './TestPg1',
     },
     {
       name: 'TstPg2',
-      path: 'TstPg2',
+      path: 'tstPg2',
       component: './TstPg2',
     },
     {
       name: 'LineChart',
-      path: 'LineChart',
+      path: 'lineChart',
       component: './LineChart',
     },
     {
       name: 'LineChartMulti',
-      path: 'LineChartMulti',
+      path: 'lineChartMulti',
       component: './LineChartMulti',
     },
     {
       name: 'PivotTable',
-      path: 'PivotTable',
+      path: 'pivotTable',
       component: './PivotTable',
     },
     {
       name: 'FormSample',
-      path: 'FormSample',
+      path: 'formSample',
       component: './FormSample',
+    },
+    {
+      name: 'AbcStaff',
+      path: 'abcStaff',
+      component: './AbcStaff',
     }
     
   ],
