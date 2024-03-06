@@ -7,7 +7,7 @@ import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 
 
-const CellEditorModal = ({title, isModalOpen, modelData, handleOk, handleCancel}) => {
+const CellEditorModal = ({title, isModalOpen, modelData, handleOk, handleCancel, onChange}) => {
 
   
   return (

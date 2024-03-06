@@ -179,16 +179,21 @@ export default function Page() {
         }
       },
       align: 'center',
+
+      renderFormItem: (_, { isEditable }) => {
+        //console.log("text="+JSON.stringify(text));
+        console.log("_.comments="+_.entry.comments);
+        return (<div onClick={() => {
+          console.log("div click="+JSON.stringify(_.entry));
+          setModelData({'id': _.entry.id, 'value': _.entry.comments});
+          showModal();
+        }}>{_.entry.comments}</div>);
+      },
+
       // renderFormItem: (_, { isEditable }) => {
-      //   //console.log("text="+JSON.stringify(text));
-      //   console.log("_.comments="+_.entry.comments);
-      //   return <div onClick={() => {
-      //     console.log("div click="+JSON.stringify(_.entry));
-      //     setModelData({'id': _.entry.id, 'value': _.entry.comments});
-      //     showModal();
-      //   }}>{_.entry.comments}</div>;
+      //   console.info("renderFormItem, _="+JSON.stringify(_));
+      //   return isEditable ? <CustRenderForm/> : <Input /> 
       // },
-      renderFormItem: (_, { isEditable }) => (isEditable ? <CustRenderForm /> : <Input /> ),
     },
     {
       title: 'Operation',
