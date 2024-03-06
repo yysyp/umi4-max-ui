@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styles from './index.less';
 import { PageContainer, EditableProTable } from '@ant-design/pro-components';
 import ProTable from '@ant-design/pro-table';
-import { Button, message, Modal } from 'antd';
+import { Button, message, Modal, Input } from 'antd';
 import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { abcStaffList } from './dummyData';
+import CellEditorModal from './components/CellEditorModal';
+import CustRenderForm from './components/CustRenderForm';
 
 
 export default function Page() {
@@ -18,7 +20,8 @@ export default function Page() {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
+  const handleOk = (md) => {
+    console.log("handleOk md="+md);
     setIsModalOpen(false);
   };
 
@@ -176,15 +179,16 @@ export default function Page() {
         }
       },
       align: 'center',
-      renderFormItem: (text, row, index) => {
-        //console.log("text="+JSON.stringify(text));
-        console.log("text.comments="+text.entry.comments);
-        return <div onClick={() => {
-          console.log("div click="+JSON.stringify(text.entry));
-          setModelData(text.entry.comments);
-          showModal();
-        }}>{text.entry.comments}</div>;
-      },
+      // renderFormItem: (_, { isEditable }) => {
+      //   //console.log("text="+JSON.stringify(text));
+      //   console.log("_.comments="+_.entry.comments);
+      //   return <div onClick={() => {
+      //     console.log("div click="+JSON.stringify(_.entry));
+      //     setModelData({'id': _.entry.id, 'value': _.entry.comments});
+      //     showModal();
+      //   }}>{_.entry.comments}</div>;
+      // },
+      renderFormItem: (_, { isEditable }) => (isEditable ? <CustRenderForm /> : <Input /> ),
     },
     {
       title: 'Operation',
@@ -220,7 +224,7 @@ export default function Page() {
         // ]}  
         pagination={{ defaultPageSize: 5 }}
         editable={{
-          type: 'multiple',
+          type: 'single',
           editableKeys,
           onSave: async (rowKey, data, row) => {
             console.log("onSave rowkey=" + rowKey + ", data=" + data + ", row=" + row);
@@ -231,11 +235,13 @@ export default function Page() {
         }}
       />
 
-      <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>{modelData}</p>
-        <p>...</p>
-        <p>...</p>
-      </Modal>
+      <CellEditorModal 
+      title="Editor" 
+      isModalOpen={isModalOpen} 
+      modelData={modelData}
+      handleOk={handleOk}
+      handleCancel={handleCancel}>
+      </CellEditorModal>
     </PageContainer>
   );
 
