@@ -117,6 +117,11 @@ export default defineConfig({
       name: 'AbcStaff',
       path: 'abcStaff',
       component: './AbcStaff',
+    },
+    {
+      name: 'CrudTable',
+      path: 'crudTable',
+      component: './CrudTable',
     }
     
   ],

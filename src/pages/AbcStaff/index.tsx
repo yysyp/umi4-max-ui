@@ -228,12 +228,16 @@ export default function Page() {
         //   </Button>,  
         // ]}  
         pagination={{ defaultPageSize: 5 }}
+        recordCreatorProps={{
+          position: 'buttom',
+          record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
+        }}
         editable={{
           type: 'single',
           editableKeys,
           onSave: async (rowKey, data, row) => {
+            //creating or editing
             console.log("onSave rowkey=" + rowKey + ", data=" + data + ", row=" + row);
-
           },
           onChange: setEditableKeys,
           actionRender: (row, config, dom) => [dom.save, dom.cancel],
